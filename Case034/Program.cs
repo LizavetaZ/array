@@ -1,12 +1,14 @@
 ﻿int N = InputValue("Введите количество элементов массива");
-if (IsInputValidat(N))
+int min = InputValue("Введите минимальное значение");
+int max = InputValue("Введите максимальное значение");
+if (IsInputValidat(N, min, max))
 {
     int count = 0;
-    int[] NewArray = CreateNewArray(N, 100, 999);
+    int[] NewArray = CreateNewArray(N, min, max);
     PrintArray(NewArray);
     Console.WriteLine();
     count = InputCount(NewArray, 0);
-    Console.WriteLine("Сумма четных элементов массива " + count);
+    Console.WriteLine("Количество четных элементов массива " + count);
 }
 else Console.WriteLine("ошибка количества элементов массива");
 
@@ -37,9 +39,9 @@ void PrintArray(int[] input)
     }
 }
 
-bool IsInputValidat(int A)
+bool IsInputValidat(int A, int minimal, int maximal)
 {
-    if (A <= 0)
+    if (A <= 0 || minimal <100 || maximal>999)
         return false;
     return true;
 }
